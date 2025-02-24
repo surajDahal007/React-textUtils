@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Refresher</title>
+    <script>
+        "use strict";
+
+        let d = 98
+
+        // let a = 33;
+        let a = "JS revision"
+        console.log(a);
+
+        // var, let, const
+        const b = 24;
+        // b = 3453534;
+
+        var c = 'suraj'
+        var c = 77
+
+        // data types in js
+        // numbers 
+        // objects
+        // booleans - true or false
+        // string 
+        // undefined
+        // null 
+
+        // function
+        // function hello(){
+        //     console.log('From hello function');
+        // }
+
+        // key value pair
+        let keys = {
+            r: 21,
+            m: 32,
+            func: function number(n) {
+                console.log("The number is " + n);
+            }
+        }
+
+
+        document.addEventListener("click", function click() {
+            console.log('clicked');
+            // alert('Oh helloo, why clicked?')
+
+            let con = confirm("Are you sure?")
+            console.log(con);
+            
+        })
+
+        let arr = [33, 34, 35];
+
+        // for (let index = 0; index < array.length; index++) {
+        //     const element = array[index];
+            
+        // }
+
+        arr.forEach(element => {
+            console.log(element);
+        });
+
+        // this is not undefined in arrow function
+
+        let myfunc = (number)=>{
+            console.log("number is " + this);
+        }
+
+        myfunc();
+
+        setTimeout(()=>{
+            console.log("Callback function after 3 sec");
+        }, 3000);
+
+        console.log("After call back function ");
+        
+
+    </script>
+</head>
+<body>
+    <h1>Learning JS for React</h1>
+</body>
+</html>
