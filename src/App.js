@@ -46,8 +46,9 @@ function App() {
   };
 
   return (
-    <>
       <div>
+        {/* /users --> components 1
+        /users/home --> components 2 */}
         <Router>
           <Navbar
             title={"TextUtils"}
@@ -59,12 +60,13 @@ function App() {
           <Alert alert={alert} />
 
           <Routes>
-            <Route path="/about" element={<About />} />
+            <Route exact path="/about" element={<About />} />
           </Routes>
 
           <Routes>
             <Route
               path="/"
+              exact
               element={
                 <TextForm
                   heading="Enter text below to analyse"
@@ -72,11 +74,10 @@ function App() {
                   showAlert={showAlert}
                 />
               }
-            ></Route>
+            />
           </Routes>
         </Router>
       </div>
-    </>
   );
 }
 

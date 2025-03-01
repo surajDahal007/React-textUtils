@@ -4,24 +4,30 @@ export default function TextForm(props) {
 
     const[text, setText] = useState("Enter text here...");
 
+    // func to convert text to uppercase  
     const handleUpClick = ()=>{
         let newText = text.toUpperCase();
         setText(newText);
         props.showAlert('Converted to UpperCase', 'success');
     }
 
+    // func to convert text to lowercase
     const handleLwClick = ()=>{
         let newText = text.toLowerCase();
         setText(newText);
         props.showAlert('Converted to Lowercase', 'success');
     }
 
-    // hello world --> Hello world.
-    // const handleTitleCaseClick = ()=>{
-    //     let newText = '';
-    //     setText(newText);
-    // }
+    // func to copy content
+    const handleCopyContent = () => {
+        let textArea = document.getElementById("myBox");
+        textArea.select();
+        textArea.setSelectionRange(0,99999);
+        document.execCommand("copy");
+        props.showAlert('Copied', 'success');
+    }
 
+    // func to clear textarea 
     const handleClearClick = ()=>{
         let newText = '';
         setText(newText);
@@ -51,7 +57,7 @@ export default function TextForm(props) {
             <button className="btn btn-primary" onClick={handleUpClick}>Convert to UpperCase</button>
             <button className="btn btn-primary mx-2" onClick={handleLwClick}>Convert to LowerCase</button>
             <button className="btn btn-primary" onClick={handleClearClick}>Clear Screen</button>
-
+            <button className="btn btn-primary mx-2" onClick={handleCopyContent}>Copy Content</button>
 
         </div>
 
