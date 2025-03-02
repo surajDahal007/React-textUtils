@@ -34,6 +34,13 @@ export default function TextForm(props) {
         props.showAlert('Clear the text', 'success');
     }
 
+    // func to remove special characters
+    const removeSpecialCharacters = ()=>{
+        setText(
+            text.replace(/[^a-zA-Z0-9 ]/g, "")
+        );
+    }
+
     const handleOnChange = (event)=>{
         setText(event.target.value);
     }
@@ -58,12 +65,13 @@ export default function TextForm(props) {
             <button className="btn btn-primary mx-2" onClick={handleLwClick}>Convert to LowerCase</button>
             <button className="btn btn-primary" onClick={handleClearClick}>Clear Screen</button>
             <button className="btn btn-primary mx-2" onClick={handleCopyContent}>Copy Content</button>
+            <button className="btn btn-primary" onClick={removeSpecialCharacters}>Remove Special Characters</button>
 
         </div>
 
         <div className="container my-4">
             <h1>Text Summary</h1>
-            <p>{text.split(" ").length} words and {text.length} characters</p>
+            <p>{text.split(/\s/).length} words and {text.length} characters</p>
             <p>{0.08 * text.split(" ").length} minutes to read.</p>
 
             <h2>Preview</h2>
